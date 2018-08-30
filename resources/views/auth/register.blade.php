@@ -40,6 +40,26 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="role" class="col-md-4 col-form-label text-md-right">User role</label>
+                        
+                            <div class="col-md-6">
+                                <select id="role" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="role" required>
+                                    @foreach($roles as $id => $role)
+                                        <option value="{{$id}}">{{$role}}</option>
+                                    @endforeach
+                                </select>
+                        
+                                @if ($errors->has('role'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('role') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
